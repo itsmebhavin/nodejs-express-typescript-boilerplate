@@ -1,6 +1,6 @@
 {
   "name": "node-express-typescript-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Sample boilerplate project for node.js , Express.js using TypeScript.",
   "main": "index.js",
   "scripts": {

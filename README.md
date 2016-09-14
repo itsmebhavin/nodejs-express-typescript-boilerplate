@@ -15,7 +15,7 @@ https://github.com/bapatel1/nodejs-express-es6-boilerplate
   - Node.js 6.x
   - Gulp
 
-  ![Alt text](/assests/packages.png?raw=true "packages.json")
+  ![packages.json](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/packages.png?raw=true "packages.json")
 
 #### Setting up TypeScript
 - You’ll need some global tools too. You might need to run these as sudo or “Run As Administrator” if you’re using windows.
@@ -30,18 +30,18 @@ tsd is a package manager for downloading TypeScript definition files. We’ll pr
 #### Setting up tsconfig.json
 Create tsconfig.json file at root level. This tells our typescript compiler some information about how to compile our .ts extension files. You can read more about tsconfig.json files here.
 
-![Alt text](/assests/tsconfig.png?raw=true "tsconfig.json")
+![tsconfig.json](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/tsconfig.png?raw=true "tsconfig.json")
 
 
 #### Setting up your Linting using tslint
 Create tsling.json file under root directory for defining linting rules.
 
-![Alt text](/assests/tslint.png?raw=true "tslint.json")
+![tslint.json](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/tslint.png?raw=true "tslint.json")
 
 #### Setting up Gulp file
 Create gulpfile.js at your root level which will handle all gulp compilation and cleaning work.
 
-![Alt text](/assests/gulpfile.png?raw=true "gulpfile.json")
+![gulpfile.js](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/gulpfile.png?raw=true "gulpfile.json")
 
 #### Server Setup
 Now let’s start moving towards actual ./Src folder and actual server setup code.
@@ -64,4 +64,61 @@ tsd install body-parser –s
 #### Main server.ts file setup
 Create server.ts file under ./src for server setup.
 
-![Alt text](/assests/server.png?raw=true "server.json")
+![import](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/import1.png?raw=true "import1.ts")
+
+#### Let’s define our first class “HttpServer”
+– it will initiate and define express app
+– handle bootstrapping express app
+– handle defining routes
+– and basic express configurations
+
+![class](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/class.png?raw=true "class.ts")
+
+![Express configurations](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/configuration.png?raw=true "configuration.ts")
+
+
+![import](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/import2.png?raw=true "import2.ts")
+
+
+![routes](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/routes.png?raw=true "routes.ts")
+
+We will get to the route files later on but first let’s start server and finish our server.ts coding
+
+
+![Server](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/server.png?raw=true "server.ts")
+
+Helper functions like “onError” and “onListening” are here –
+
+![helper](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/helper.png?raw=true "helper.ts")
+
+
+#### Setting up Express Routes
+
+- We have two routes – Index and Users for example.
+  -   Create “routes” folder under “src” folder which will have our routes.
+  -   Create Index.ts and Users.ts files inside routes folder.
+
+![index](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/index.png?raw=true "index.ts")
+
+
+![users](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/users.png?raw=true "users.ts")
+
+
+#### Final Run and build
+```
+> npm run gulp  or gulp build
+> npm run start
+```
+
+![postman](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/postman.png?raw=true "postman")
+
+
+##### Repository
+```
+https://github.com/bapatel1/nodejs-express-typescript-boilerplate
+```
+
+##### Blog
+```
+https://itsmebhavin.wordpress.com/
+```
