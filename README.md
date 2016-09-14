@@ -14,4 +14,54 @@ https://github.com/bapatel1/nodejs-express-es6-boilerplate
   - express
   - Node.js 6.x
   - Gulp
+
   ![Alt text](/assests/packages.png?raw=true "packages.json")
+
+#### Setting up TypeScript
+- You’ll need some global tools too. You might need to run these as sudo or “Run As Administrator” if you’re using windows.
+```
+npm install --global typescript gulp tsd
+```
+typescript is our global typescript compiler
+gulp is a build tool that’s crazy popular now and will help us create beautiful expressive build commands
+tsd is a package manager for downloading TypeScript definition files. We’ll primarily use this for expressjs
+
+
+#### Setting up tsconfig.json
+Create tsconfig.json file at root level. This tells our typescript compiler some information about how to compile our .ts extension files. You can read more about tsconfig.json files here.
+
+![Alt text](/assests/tsconfig.png?raw=true "tsconfig.json")
+
+
+#### Setting up your Linting using tslint
+Create tsling.json file under root directory for defining linting rules.
+
+![Alt text](/assests/tslint.png?raw=true "tslint.json")
+
+#### Setting up Gulp file
+Create gulpfile.js at your root level which will handle all gulp compilation and cleaning work.
+
+![Alt text](/assests/gulpfile.png?raw=true "gulpfile.json")
+
+#### Server Setup
+Now let’s start moving towards actual ./Src folder and actual server setup code.
+
+In our src directory. We’ll need to start a typescript definition file.
+
+```
+cd src
+tsd init -y
+```
+
+This will create one file “tsd.json” and one folder “typings” in your src folder. Now we’ll install express’s typescript definition with:
+
+```
+cd src
+tsd install express –s
+tsd install body-parser –s
+```
+
+#### Main server.ts file setup
+Create server.ts file under ./src for server setup.
+
+![Alt text](/assests/server.png?raw=true "server.json")
