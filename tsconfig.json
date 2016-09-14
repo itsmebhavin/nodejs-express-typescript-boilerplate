@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "commonjs",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "sourceRoot": "src",
+        "outDir": "build"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

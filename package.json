@@ -1,0 +1,35 @@
+{
+  "name": "node-express-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "Sample boilerplate project for node.js , Express.js using TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "build":"gulp clean build",
+    "lint" :"gulp lint",
+    "start":"node ./build/server"
+  },
+  "engines": {
+    "node": "~5.6"
+  },
+  "author": "Bhavin Patel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "moment": "^2.15.0",
+    "morgan": "^1.7.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-cli": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-ts": "^0.3.0",
+    "gulp-tslint": "^6.1.1",
+    "gulp-typescript": "^2.13.6",
+    "tslint": "^3.15.1"
+  }
+}
