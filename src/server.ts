@@ -1,16 +1,21 @@
 /// <reference path="typings/express/express.d.ts" />
 /// <reference path="typings/body-parser/body-parser.d.ts" />
+/// <reference path="typings/morgan/morgan.d.ts" />
+/// <reference path="typings/cors/cors.d.ts" />
 "use strict";
 //Let's import express and other necessary middleware
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
 import * as http from 'http';
+import * as cors from 'cors';
+import * as morgan from 'morgan';
+
 
 //Let's import your router files
 import * as indexRouter from "./routes/index";
 import * as usersRouter from "./routes/users";
-
+import * as logger from "./helpers/winston";
 
 class HttpServer {
     public app: express.Application;
@@ -29,15 +34,27 @@ class HttpServer {
         this.IndexRoutes();
         this.UsersRoutes();
     }
-    private ExpressConfiguration(){
-      this.app.use(bodyParser.urlencoded({ extended: true }));
-      this.app.use(bodyParser.json());
-      // catch 404 and forward to error handler
-      this.app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-          var error = new Error("Not Found");
-          err.status = 404;
-          next(err);
-      });
+    private ExpressConfiguration() {
+        this.app.use(bodyParser.urlencoded({ extended: true }));
+        this.app.use(bodyParser.json());
+
+        //cors settings
+        this.app.use(function(req, res, next) {
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+            res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE,OPTIONS');
+            next();
+        });
+        this.app.use(cors());
+
+        // morgan settings
+        this.app.use(morgan('dev'));
+        // catch 404 and forward to error handler
+        this.app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+            var error = new Error("Not Found");
+            err.status = 404;
+            next(err);
+        });
     }
     private IndexRoutes() {
         this.router = express.Router();
@@ -47,7 +64,7 @@ class HttpServer {
         this.router.post("/", index.post.bind(index.post));
         //this.router.put("/", index.put.bind(index.put));
         this.router.delete("/", index.delete.bind(index.delete));
-        this.app.use("/api/index",this.router);
+        this.app.use("/api/index", this.router);
     }
 
     private UsersRoutes() {
@@ -58,7 +75,7 @@ class HttpServer {
         this.router.post("/", users.post.bind(users.post));
         //this.router.put("/", users.put.bind(users.put));
         this.router.delete("/", users.delete.bind(users.delete));
-        this.app.use("/api/users",this.router);
+        this.app.use("/api/users", this.router);
     }
 }
 

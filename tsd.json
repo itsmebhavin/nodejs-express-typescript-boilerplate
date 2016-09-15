@@ -5,34 +5,22 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "serve-static/serve-static.d.ts": {
-      "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
-    },
-    "express-serve-static-core/express-serve-static-core.d.ts": {
+    "morgan/morgan.d.ts": {
       "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
     },
     "express/express.d.ts": {
       "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
     },
-    "node/node.d.ts": {
+    "serve-static/serve-static.d.ts": {
       "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
     },
     "mime/mime.d.ts": {
       "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
     },
-    "body-parser/body-parser.d.ts": {
-      "commit": "f46e80640829b7dc43a4030868c1e82889acdabd"
-    },
-    "morgan/morgan.d.ts": {
+    "express-serve-static-core/express-serve-static-core.d.ts": {
       "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
     },
-    "cors/cors.d.ts": {
-      "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
-    },
-    "winston/winston.d.ts": {
-      "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
-    },
-    "moment/moment.d.ts": {
+    "node/node.d.ts": {
       "commit": "ead52a81845d0c01776728d31fc7e4efd314887b"
     }
   }
