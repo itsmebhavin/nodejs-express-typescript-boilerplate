@@ -6,8 +6,6 @@ dist
 .logs
 logs
 typings
-**/*.js
-**/*.js.map
 .idea
 
 # Global Node.js .gitignore settings

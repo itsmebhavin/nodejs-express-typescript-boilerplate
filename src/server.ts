@@ -8,9 +8,9 @@ import * as path from 'path';
 import * as http from 'http';
 
 //Let's import your router files
-import * as indexRouter from "./routes/index";
+import * as garageRouter from "./routes/garage";
 import * as usersRouter from "./routes/users";
-
+import * as piRouter from "./routes/pi";
 
 class HttpServer {
     public app: express.Application;
@@ -26,7 +26,8 @@ class HttpServer {
         this.ExpressConfiguration();
 
         //configure routes
-        this.IndexRoutes();
+        this.GarageRoutes();
+        this.PiRoutes();
         this.UsersRoutes();
     }
     private ExpressConfiguration(){
@@ -39,31 +40,39 @@ class HttpServer {
           next(err);
       });
     }
-    private IndexRoutes() {
+
+    //Garage automation router
+    private GarageRoutes() {
         this.router = express.Router();
-        var index: indexRouter.Index = new indexRouter.Index();
-        this.router.get("/all", index.all.bind(index.all));
-        this.router.get("/", index.get.bind(index.get));
-        this.router.post("/", index.post.bind(index.post));
-        //this.router.put("/", index.put.bind(index.put));
-        this.router.delete("/", index.delete.bind(index.delete));
-        this.app.use("/api/index",this.router);
+        var garage: garageRouter.Garage = new garageRouter.Garage();
+        this.router.get("/on", garage.on.bind(garage.on));
+        this.router.get("/off", garage.off.bind(garage.off));
+        this.router.get("/on1", garage.on1.bind(garage.on1));
+        this.router.get("/off1", garage.off1.bind(garage.off1));
+        this.app.use("/api/garage",this.router);
+    }
+
+    private PiRoutes() {
+        this.router = express.Router();
+        var pi: piRouter.Pi = new piRouter.Pi();
+        this.router.get("/cpu", pi.cpu.bind(pi.cpu));
+        this.router.get("/linuxversion", pi.linuxversion.bind(pi.linuxversion));
+        this.router.get("/memory", pi.memory.bind(pi.memory));
+        this.router.get("/restart", pi.restart.bind(pi.restart));
+        this.router.get("/shutdown", pi.shutdown.bind(pi.shutdown));
+        this.app.use("/api/pi",this.router);
     }
 
     private UsersRoutes() {
         this.router = express.Router();
         var users: usersRouter.Users = new usersRouter.Users();
         this.router.get("/all", users.all.bind(users.all));
-        this.router.get("/", users.get.bind(users.get));
-        this.router.post("/", users.post.bind(users.post));
-        //this.router.put("/", users.put.bind(users.put));
-        this.router.delete("/", users.delete.bind(users.delete));
         this.app.use("/api/users",this.router);
     }
 }
 
 //Now initialize app based on HttpServer Class,we defined.
-const port: number = process.env.PORT || 8080;
+const port: number = process.env.PORT || 3030;
 let httpserver = HttpServer.bootstrap();
 let app = httpserver.app;
 app.set("port", port);
