@@ -112,6 +112,10 @@ Helper functions like “onError” and “onListening” are here –
 
 ![postman](https://github.com/bapatel1/nodejs-express-typescript-boilerplate/blob/master/assests/postman.png?raw=true "postman")
 
+##### Author
+```
+Bhavin Patel
+```
 
 ##### Repository
 ```
