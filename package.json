@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp clean build",
     "lint": "gulp lint",
-    "start": "node ./build/server"
+    "start": "npm run build && node ./build/server"
   },
   "engines": {
     "node": "~5.6"
